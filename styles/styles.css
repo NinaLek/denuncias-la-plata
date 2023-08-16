@@ -122,7 +122,7 @@ footer {
     margin-bottom: 0;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    
     justify-content: space-evenly;
     position: relative;
     bottom: 0px;
@@ -167,19 +167,8 @@ footer li {
     line-height: 1.5em;
 
 }
-/*
-.telefonos-utiles {
-    width: 30%;
-}
 
-.telefonos-utiles span {
-    display: block;
-}
 
-.telefonos-utiles p {
-    text-align: end;
-}
-*/
 /*----------------------------estilos de index----------------------------------------------------*/
 .portada {
     display: flex;
@@ -217,8 +206,9 @@ footer li {
     padding-right: 1em;
     margin: 10px;
 }
+
 /* ---------estilos denuncias contacto --------------*/
-.categoria{
+.categoria {
     margin: 25px auto;
     width: 75%;
     display: flex;
@@ -227,9 +217,10 @@ footer li {
     line-height: 1.5em;
     padding: 20px;
     border: 2px solid lightgray;
-   background-color: rgb(10, 39, 66, 25%);
+    background-color: rgb(10, 39, 66, 25%);
 }
-.categoria h2{
+
+.categoria h2 {
     color: #0A2742;
     text-align: center;
     padding-bottom: 10px;
@@ -243,7 +234,8 @@ footer li {
     width: auto;
     min-height: 800px;
 }
-/* ----- estilos ong -----*/
+
+/* -------------------------------------------------- estilos ong -----*/
 .banner {
     display: flex;
     justify-content: center;
@@ -329,6 +321,7 @@ footer li {
     width: 27%;
     height: 410px;
 }
+
 /*--------------------------------------------------estilos de contacto-------------------------------------------------*/
 .caja-contenedora {
     margin: 1em 1em;
@@ -498,6 +491,20 @@ nav label {
 
 }
 
+#footer-raro{ 
+    height: max-content;
+    align-items: center;
+}
+#footer-raro .info-footer{
+    font-size: 1em;
+    line-height: 1em;
+}
+#footer-raro .telefonos-utiles{
+    font-size: 1em;
+    line-height: 0.5em;
+    font-weight: 100;
+}
+
 /* ---- pantalla monitor grande (1280*1024)---- */
 
 @media screen and (min-width:1400px) {
@@ -574,7 +581,7 @@ nav label {
         margin: 0 auto;
         flex-direction: column;
         text-align: center;
-      
+
         justify-content: space-evenly;
     }
 
@@ -593,9 +600,17 @@ nav label {
         width: auto;
         flex: 0;
     }
-    .mapa{
+
+    .mapa {
         display: none;
     }
+    
+    footer{
+        font-size: 10px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
     /* ----- estilos contacto -----*/
     .caja-contenedora {
         flex-direction: column;
@@ -659,7 +674,7 @@ nav label {
     }
 
     .caja-contenedora {
-      
+
         flex-direction: column;
         width: auto;
 
@@ -688,6 +703,7 @@ nav label {
 
         margin: 0;
     }
+
     .sup {
         margin: 5%;
 
@@ -704,9 +720,17 @@ nav label {
     .inferior .card {
         display: none;
     }
-    .mapa, .telefonos-utiles{
+
+    footer{
+        font-size: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .mapa,
+    .telefonos-utiles {
         display: none;
     }
+
     /* ----- estilos blog -----*/
     .datos {
         margin-top: 0;
@@ -755,7 +779,3 @@ nav label {
         width: 100%;
     }
 }
-
-
-
-
