@@ -81,9 +81,9 @@
                     <p>¿Sugerencias, comentarios? Dejanos tu mensaje y te reponderemos.
                 </div>
                 <div class="datos-formulario">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus>
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido">
-                    <input type="email" id="email" name="email" placeholder="E-mail">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus required>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                    <input type="email" id="email" name="email" placeholder="E-mail" required>
 
                     <select name="motivo-contacto" id="motivo-contacto">
                         <option value="motivo">--Seleccione el motivo--</option>
@@ -91,13 +91,15 @@
                         <option value="sugerencia">Sugerencia</option>
                         <option value="error">Error</option>
                     </select>
-                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" required></textarea>
                     <div class="botonera">
                         <div class="btn-limpiar"><input type="reset" value="Limpiar" id="btn-limpiar"></div>
                         <div class="btn-enviar">
-                            <input type="submit" value="Enviar" id="btn-enviar">
+                            <input type="submit" value="Enviar" id="btn-enviar" onclick="MensajeEnviado()">
                         </div>
-
+                        <div class="btn-suscribite">
+                          <input type="submit" value="Suscribite" id="btn-suscribite" onclick="registrate()">
+                      </div>
                     </div>
             </fieldset>
         </form>
