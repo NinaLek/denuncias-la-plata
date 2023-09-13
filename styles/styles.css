@@ -515,12 +515,14 @@ legend {
 }
 
 .botonera .btn-enviar,
-.botonera .btn-limpiar {
+.botonera .btn-limpiar,
+.botonera .btn-suscribite{
     width: 25%;
 }
 
 #btn-limpiar,
-#btn-enviar {
+#btn-enviar,
+#btn-suscribite{
     background-color: #0A2742;
     color: white;
     padding: 9px;
