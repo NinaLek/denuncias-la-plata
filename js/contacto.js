@@ -1,6 +1,6 @@
 
 function registrate(){
-let email = prompt("Ingresá tu email para estar conocer los últimos eventos:");
+let email = prompt("Ingresá tu email para conocer los últimos eventos:");
 
 if ((email.indexOf('@') != -1)&&(email.indexOf('.com') != -1)){
     alert('Se ha registrado el mail: ' + email + ' correctamente');
