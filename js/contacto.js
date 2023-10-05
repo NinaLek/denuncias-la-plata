@@ -92,25 +92,40 @@ document.querySelector('#mensaje').addEventListener('blur', validarMensaje);
 
 const btnSuscribite = document.getElementById('btn-suscribite');
 
+function Usuario(nombre, apellido, email){
+    this.nombre= nombre,
+    this.email = email,
+    this.apellido =apellido
+}
+
+let usuarios = [];
+
 btnSuscribite.addEventListener('click', (e)=>{
 
     let emailsusc = prompt('Ingresá tu mail para recibir nuestras novedades');
     const emailValido = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    const caracteresValidos = /^[ a-zA-ZñÑáéíóúüçÁÉÍÓÚÜÇ]+$/;
+    
     if (emailsusc != '' && emailsusc != null && emailValido.test(emailsusc)){
-        const caracteresValidos = /^[ a-zA-ZñÑáéíóúüçÁÉÍÓÚÜÇ]+$/;
         let nombsusc= prompt('Ingresá tu nombre');
-        
         if (nombsusc != '' && nombsusc != null && caracteresValidos.test(nombsusc)){
-
-            alert('Felicidades, ' + nombsusc + ' ya estás registrada en nuestra base de datos');
+            let apesusc= prompt('Ingresá tu apellido');
+            if (apesusc != '' && apesusc != null && caracteresValidos.test(apesusc)){
+                let usuario= new Usuario(nombsusc,apesusc,emailsusc);//instancio un nuevo usuario
+                usuarios.push(usuario);//se lo mando al arreglo de usuarios
+                let usuariosJSON= JSON.stringify(usuarios);
+                localStorage.setItem('usuarios',usuariosJSON);//se supone que acá se mandó al local storage
+                alert('Felicidades, ' + nombsusc + ' ' + apesusc + ' ya estás registrada en nuestra base de datos');
+                return true; 
+            }
         }
-        else{
-            return true; 
-        }
-
-    }else{
+    }
+    else{
 
         alert('Ha ocurrido un error. Por favor revise sus datos');
     }
 
 })
+
+// chequeando que el local storage ande
+console.log(localStorage.getItem('usuarios'));// muestra el ingresado antes de la recarga

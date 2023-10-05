@@ -63,51 +63,53 @@
             <li><a href="./contacto.html">Contacto</a></li>
           </ul>
         </nav>
-      </header>
+    </header>
 
     <main>
-       <h1>Contactate con nosotros</h1>
-                
-                <div class="caja-mensaje-formulario">
-                    <p>Si querés hacernos una sugerencia, consultarnos algo o encontraste algún error en la página,
-                        rellená nuestro formulario y nos pondremos en contacto lo antes posible.</p>
-                    <p>Muchas gracias.</p>
-                    <p><span class="dato-importante">Nuestras oficinas: Calle 7 1223</span></p>
-                    <p>CP 1900 - La Plata - Buenos Aires - Argentina</p>
-                    <p><span class="dato-importante">Teléfono: (+54) 221 - 2325636</span></p>
-                    <p><span class="dato-importante">Email: <a href="">laplatadenuncias@gmail.com</a></span></p>
-                </div>
-                <div class="mensaje-contenido-alternativo">
-                    <p>¿Sugerencias, comentarios? Dejanos tu mensaje y te reponderemos.
-                </div>
+      <h1>Contactate con nosotros</h1>
+      <div class="contenedor">
+      <div class="caja-mensaje-formulario cc1">
+        <p>Si querés hacernos una sugerencia, consultarnos algo o encontraste algún error en la página,
+          rellená nuestro formulario y nos pondremos en contacto lo antes posible.</p>
+        <p>Muchas gracias.</p>
+        <p><span class="dato-importante">Nuestras oficinas: Calle 7 1223</span></p>
+        <p>CP 1900 - La Plata - Buenos Aires - Argentina</p>
+        <p><span class="dato-importante">Teléfono: (+54) 221 - 2325636</span></p>
+        <p><span class="dato-importante">Email: <a href="">laplatadenuncias@gmail.com</a></span></p>
+      </div>
+      <div class="mensaje-contenido-alternativo">
+        <p>¿Sugerencias, comentarios? Dejanos tu mensaje y te reponderemos.
+      </div>
+      <div class="caja-contenedora cc2">
       <form id="registro">
-        <div class="caja-contenedora">
-          
-                <div class="datos-formulario">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus >
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" >
-                    <input type="email" id="email" name="email" placeholder="E-mail" >
+              <div class="datos-formulario">
+                  <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus >
+                  <input type="text" id="apellido" name="apellido" placeholder="Apellido" >
+                  <input type="email" id="email" name="email" placeholder="E-mail" >
 
-                    <select name="motivo-contacto" id="motivo-contacto">
-                        <option value="motivo">--Seleccione el motivo--</option>
-                        <option value="consulta">Consulta</option>
-                        <option value="sugerencia">Sugerencia</option>
-                        <option value="error">Error</option>
-                    </select>
-                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" ></textarea>
-                    <div class="botonera">
-                        <div class="btn-limpiar"><input type="reset" value="Limpiar" id="btn-limpiar"></div>
+                  <select name="motivo-contacto" id="motivo-contacto">
+                      <option value="motivo">--Seleccione el motivo--</option>
+                      <option value="consulta">Consulta</option>
+                      <option value="sugerencia">Sugerencia</option>
+                      <option value="error">Error</option>
+                  </select>
+                  <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" ></textarea>
+                  <div class="botonera">
+                        <div class="btn-limpiar">
+                            <input type="reset" value="Limpiar" id="btn-limpiar">
+                        </div>
                         <div class="btn-enviar">
                             <input type="submit" value="Enviar" id="btn-enviar">
                         </div>
-                        
-                    </div>
-                  </div>
-        </form>
+                </div>
+            </div>
+      </form>
+    </div>
+      
     </main>
     <div class="btn-suscribite"> 
-      <button id="btn-suscribite" class="btn-suscribite">Suscribite</button>
-  </div>
+         <button id="btn-suscribite" class="btn-suscribite">Suscribite</button>
+    </div>     
     
     <footer>
         <div class="info-footer">
