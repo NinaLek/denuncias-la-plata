@@ -88,3 +88,29 @@ document.querySelector('#nombre').addEventListener('blur', validarNombre);
 document.querySelector('#apellido').addEventListener('blur', validarApellido);
 document.querySelector('#mensaje').addEventListener('blur', validarMensaje);
 
+//botón suscribite- La idea es mejorar el código para que no se repita tanto, y hacerlo más eficientes con todo lo que hemos visto. Pero voy de a poco
+
+const btnSuscribite = document.getElementById('btn-suscribite');
+
+btnSuscribite.addEventListener('click', (e)=>{
+
+    let emailsusc = prompt('Ingresá tu mail para recibir nuestras novedades');
+    const emailValido = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    if (emailsusc != '' && emailsusc != null && emailValido.test(emailsusc)){
+        const caracteresValidos = /^[ a-zA-ZñÑáéíóúüçÁÉÍÓÚÜÇ]+$/;
+        let nombsusc= prompt('Ingresá tu nombre');
+        
+        if (nombsusc != '' && nombsusc != null && caracteresValidos.test(nombsusc)){
+
+            alert('Felicidades, ' + nombsusc + ' ya estás registrada en nuestra base de datos');
+        }
+        else{
+            return true; 
+        }
+
+    }else{
+
+        alert('Ha ocurrido un error. Por favor revise sus datos');
+    }
+
+})

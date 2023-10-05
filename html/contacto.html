@@ -85,8 +85,8 @@
           
                 <div class="datos-formulario">
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus >
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-                    <input type="email" id="email" name="email" placeholder="E-mail" required>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" >
+                    <input type="email" id="email" name="email" placeholder="E-mail" >
 
                     <select name="motivo-contacto" id="motivo-contacto">
                         <option value="motivo">--Seleccione el motivo--</option>
@@ -94,20 +94,20 @@
                         <option value="sugerencia">Sugerencia</option>
                         <option value="error">Error</option>
                     </select>
-                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" required></textarea>
+                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje" ></textarea>
                     <div class="botonera">
                         <div class="btn-limpiar"><input type="reset" value="Limpiar" id="btn-limpiar"></div>
                         <div class="btn-enviar">
                             <input type="submit" value="Enviar" id="btn-enviar">
                         </div>
-                        <!-- <div class="btn-suscribite"> poner botón button
-                          <input type="submit" value="Suscribite" id="btn-suscribite" onclick="registrate()">
-                      </div> -->
+                        
                     </div>
                   </div>
         </form>
     </main>
-   
+    <div class="btn-suscribite"> 
+      <button id="btn-suscribite" class="btn-suscribite">Suscribite</button>
+  </div>
     
     <footer>
         <div class="info-footer">
