@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contacto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@700&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="../styles/styles.css">
-        <script src="../js/contacto.js"></script>
+       
 </head>
 
 <body>
@@ -66,9 +66,8 @@
       </header>
 
     <main>
-        <form action="">
-            <fieldset class="caja-contenedora">
-                <legend>Contactate con nosotros</legend>
+       <h1>Contactate con nosotros</h1>
+                
                 <div class="caja-mensaje-formulario">
                     <p>Si querés hacernos una sugerencia, consultarnos algo o encontraste algún error en la página,
                         rellená nuestro formulario y nos pondremos en contacto lo antes posible.</p>
@@ -81,8 +80,11 @@
                 <div class="mensaje-contenido-alternativo">
                     <p>¿Sugerencias, comentarios? Dejanos tu mensaje y te reponderemos.
                 </div>
+      <form id="registro">
+        <div class="caja-contenedora">
+          
                 <div class="datos-formulario">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" autofocus >
                     <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
                     <input type="email" id="email" name="email" placeholder="E-mail" required>
 
@@ -96,13 +98,13 @@
                     <div class="botonera">
                         <div class="btn-limpiar"><input type="reset" value="Limpiar" id="btn-limpiar"></div>
                         <div class="btn-enviar">
-                            <input type="submit" value="Enviar" id="btn-enviar" onclick="MensajeEnviado()">
+                            <input type="submit" value="Enviar" id="btn-enviar">
                         </div>
-                        <div class="btn-suscribite">
+                        <!-- <div class="btn-suscribite"> poner botón button
                           <input type="submit" value="Suscribite" id="btn-suscribite" onclick="registrate()">
-                      </div>
+                      </div> -->
                     </div>
-            </fieldset>
+                  </div>
         </form>
     </main>
    
@@ -136,5 +138,6 @@
             </p>
         </div>
     </footer>
-
+    <script src="../js/contacto.js"></script>
+</body>
 </html>

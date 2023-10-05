@@ -226,6 +226,16 @@ footer li {
     padding-bottom: 10px;
     font-size: 2em;
 }
+.invalido{
+    border-color: red;
+    color: red;
+   
+}
+.valida{
+    border-color: green;
+    color: green;
+   
+}
 
 /*--------------------------------------------------estilos de blog ----------------------------------------------------*/
 .contenido {
