@@ -717,7 +717,9 @@ nav label {
         display: contents;
     }
 
-
+    .contenedor{
+        flex-direction: column;
+    }
 
     .portada {
         flex-direction: column;
@@ -794,7 +796,9 @@ nav label {
     .portada {
         flex-direction: column;
     }
-
+    .contenedor{
+        flex-direction: column;
+    }
     .presentacion {
         width: 80%;
         margin: 0 auto;
