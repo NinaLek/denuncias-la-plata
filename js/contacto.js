@@ -1,17 +1,29 @@
 let envio = document.querySelector('#registro');
-
+let limpiar = document.getElementById('btn-limpiar');
 envio.addEventListener('submit', (e)=>{
     e.preventDefault();
     if (validarNombre() && validarApellido() && validarEmail() && validarMensaje()){
+        let mensajeActual = new Mensaje(nombre.value,apellido.value,email.value,mensaje.value);
+        mensajesEnviados.push(mensajeActual);
+        let mensajeJSON = JSON.stringify(mensajesEnviados);
+        localStorage.setItem('mensajes',mensajeJSON);
         alert('Su mensaje ha sido enviado exitosamente');
+        /// creo que lo de sacar de ña base de datos es para el caso en que tuviesemos un json ya y tuviesemos que sacar los datos de ahi
+let nuevoObjeto = JSON.parse(localStorage.getItem("mensajes"));//acá para crear uno desde el local storage nomás
+
+
+        ///mostrar los datos ingresados
+let nomIngresado = nuevoObjeto[nuevoObjeto.length-1].nombre;
+let apeIngresado = nuevoObjeto[nuevoObjeto.length-1].apellido;
+let emailIngresado = nuevoObjeto[nuevoObjeto.length-1].email;
+let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
+document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado;
         return true;
     }else{
         alert('El mensaje no ha sido enviado. Verifique los campos');
         return false;
     }
 })
-
-
 //funciones para validar nombre y apellido 
 
 function validarNombre(e){
@@ -128,4 +140,21 @@ btnSuscribite.addEventListener('click', (e)=>{
 })
 
 // chequeando que el local storage ande
-console.log(localStorage.getItem('usuarios'));// muestra el ingresado antes de la recarga
+//console.log(localStorage.getItem('usuarios'));// muestra el ingresado antes de la recarga
+
+
+//localstorage para los mensajes
+//objeto mensaje
+
+function Mensaje(nombre,apellido,email,mensaje){
+    this.nombre = nombre,
+    this.apellido = apellido,
+    this.email = email,
+    this.mensaje = mensaje
+}
+
+let mensajesEnviados = [];
+
+limpiar.addEventListener('clic', ()=>{
+    document.getElementById('ventana-ingresados').innerHTML='';
+})
