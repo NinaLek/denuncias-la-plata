@@ -2,27 +2,29 @@ let envio = document.querySelector('#registro');
 let limpiar = document.getElementById('btn-limpiar');
 envio.addEventListener('submit', (e)=>{
     e.preventDefault();
-    if (validarNombre() && validarApellido() && validarEmail() && validarMensaje()){
-        let mensajeActual = new Mensaje(nombre.value,apellido.value,email.value,mensaje.value);
+    if (validarNombre() && validarApellido() && validarEmail() && validarMensaje() && validarMotivo(e)){
+        let mensajeActual = new Mensaje(nombre.value,apellido.value,email.value,mensaje.value, motivoContacto.value);
         mensajesEnviados.push(mensajeActual);
         let mensajeJSON = JSON.stringify(mensajesEnviados);
         localStorage.setItem('mensajes',mensajeJSON);
         alert('Su mensaje ha sido enviado exitosamente');
-        /// creo que lo de sacar de ña base de datos es para el caso en que tuviesemos un json ya y tuviesemos que sacar los datos de ahi
-let nuevoObjeto = JSON.parse(localStorage.getItem("mensajes"));//acá para crear uno desde el local storage nomás
+            
+    /// creo que lo de sacar de ña base de datos es para el caso en que tuviesemos un json ya y tuviesemos que sacar los datos de ahi
+    let nuevoObjeto = JSON.parse(localStorage.getItem("mensajes"));//acá para crear uno desde el local storage nomás
 
 
-        ///mostrar los datos ingresados
-let nomIngresado = nuevoObjeto[nuevoObjeto.length-1].nombre;
-let apeIngresado = nuevoObjeto[nuevoObjeto.length-1].apellido;
-let emailIngresado = nuevoObjeto[nuevoObjeto.length-1].email;
-let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
-document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado;
-        return true;
-    }else{
-        alert('El mensaje no ha sido enviado. Verifique los campos');
-        return false;
-    }
+    ///mostrar los datos ingresados
+    let nomIngresado = nuevoObjeto[nuevoObjeto.length-1].nombre;
+    let apeIngresado = nuevoObjeto[nuevoObjeto.length-1].apellido;
+    let emailIngresado = nuevoObjeto[nuevoObjeto.length-1].email;
+    let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
+    let motIngresado = nuevoObjeto[nuevoObjeto.length-1].motivo;
+    document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado + " <br> Motivo: " + motIngresado;
+            return true;
+        }else{
+            alert('El mensaje no ha sido enviado. Verifique los campos');
+            return false;
+        }
 })
 //funciones para validar nombre y apellido 
 
@@ -69,6 +71,23 @@ function validarEmail(e){
      }
      
  }
+
+//funcion para validar el motivo
+function validarMotivo(e){
+    let motivo = e.target.value
+
+    //comparo el valor del select contra 'motivo' ya que es el valor
+    //default cuando no hay ningun motivo seleccionado
+
+    if (motivo === 'motivo') {
+        colorValorInvalido('#motivoContacto')
+        return false
+    } else {
+        colorValorValido('#motivoContacto')
+        return true
+    }
+}
+
  //validar mensaje
 function validarMensaje(){
     let msj = document.getElementById('mensaje').value;
@@ -96,6 +115,7 @@ function colorValorInvalido(elemento){
 
 
 document.querySelector('#email').addEventListener('blur', validarEmail);
+document.querySelector('#motivoContacto').addEventListener('blur', validarMotivo);
 document.querySelector('#nombre').addEventListener('blur', validarNombre);
 document.querySelector('#apellido').addEventListener('blur', validarApellido);
 document.querySelector('#mensaje').addEventListener('blur', validarMensaje);
@@ -146,11 +166,14 @@ btnSuscribite.addEventListener('click', (e)=>{
 //localstorage para los mensajes
 //objeto mensaje
 
-function Mensaje(nombre,apellido,email,mensaje){
-    this.nombre = nombre,
-    this.apellido = apellido,
-    this.email = email,
-    this.mensaje = mensaje
+class Mensaje {
+    constructor(nombre, apellido, email, mensaje, motivo) {
+        this.nombre = nombre,
+            this.apellido = apellido,
+            this.email = email,
+            this.mensaje = mensaje;
+        this.motivo = motivo;
+    }
 }
 
 let mensajesEnviados = [];
