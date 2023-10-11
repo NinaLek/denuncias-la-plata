@@ -1,106 +1,149 @@
 let envio = document.querySelector('#registro');
 let limpiar = document.getElementById('btn-limpiar');
+
+
 envio.addEventListener('submit', (e)=>{
+
     e.preventDefault();
+
     if (validarNombre() && validarApellido() && validarEmail() && validarMensaje()){
+
         let mensajeActual = new Mensaje(nombre.value,apellido.value,email.value,mensaje.value);
-        mensajesEnviados.push(mensajeActual);
         let mensajeJSON = JSON.stringify(mensajesEnviados);
+        mensajesEnviados.push(mensajeActual);
         localStorage.setItem('mensajes',mensajeJSON);
+
         alert('Su mensaje ha sido enviado exitosamente');
-        /// creo que lo de sacar de ña base de datos es para el caso en que tuviesemos un json ya y tuviesemos que sacar los datos de ahi
-let nuevoObjeto = JSON.parse(localStorage.getItem("mensajes"));//acá para crear uno desde el local storage nomás
+
+        /// creo que lo de sacar de la base de datos es para el caso en que tuviesemos un json ya y tuviesemos que sacar los datos de ahi
+        let nuevoObjeto = JSON.parse(localStorage.getItem("mensajes"));//acá para crear uno desde el local storage nomás
 
 
         ///mostrar los datos ingresados
-let nomIngresado = nuevoObjeto[nuevoObjeto.length-1].nombre;
-let apeIngresado = nuevoObjeto[nuevoObjeto.length-1].apellido;
-let emailIngresado = nuevoObjeto[nuevoObjeto.length-1].email;
-let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
-document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado;
+        let nomIngresado = nuevoObjeto[nuevoObjeto.length-1].nombre;
+        let apeIngresado = nuevoObjeto[nuevoObjeto.length-1].apellido;
+        let emailIngresado = nuevoObjeto[nuevoObjeto.length-1].email;
+        let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
+        document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado;
+
         return true;
+
     }else{
+
         alert('El mensaje no ha sido enviado. Verifique los campos');
+
         return false;
     }
 })
-//funciones para validar nombre y apellido 
+
+
+
+//funciones para validar nombre y apellido     ¡¡¡¿¿ CÓMO MEJORAR PARA NO REPETIR EL CODIGO??!!!
 
 function validarNombre(e){
-    const nombre = document.getElementById('nombre').value;
     //e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value;
     const caracteresValidos = /^[ a-zA-ZñÑáéíóúüçÁÉÍÓÚÜÇ]+$/;
+
     if (nombre != '' && nombre != null && caracteresValidos.test(nombre)){
-        colorValorValido('#nombre');
         
+        colorValorValido('#nombre');
         return true;
+
     }else{
+
         colorValorInvalido('#nombre');
         return false;
     }
 }
 
 function validarApellido(e){
+    // e.preventDefault();
+
     const apellido = document.getElementById('apellido').value;
-   // e.preventDefault();
     const caracteresValidos = /^[ a-zA-ZñÑáéíóúüçÁÉÍÓÚÜÇ]+$/;
+    
     if (apellido != '' && apellido != null && caracteresValidos.test(apellido)){
         colorValorValido('#apellido');
-        
         return true;
+
     }else{
+
         colorValorInvalido('#apellido');
         return false;
+
     }
 }
+
+
+
 
 //función para validar email
 
 function validarEmail(e){
     // e.preventDefault();
+
      const email = document.getElementById('email').value;
      const emailValido = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
      if (email != '' && email != null && emailValido.test(email)){
+
          colorValorValido('#email');
          return true;
+
      }else{
+
          colorValorInvalido('#email');
          return false;
+
      }
      
  }
- //validar mensaje
+
+
+
+
+ //función para validar mensaje
 function validarMensaje(){
+
     let msj = document.getElementById('mensaje').value;
+
     if (msj != '' && msj != null && msj.length>10){
         colorValorValido('#mensaje');
         return true;
+
     }else{
+
         colorValorInvalido('#mensaje');
         return false;
+
     }
 
 }
 
 //agregandole y sacandole las clases para los colores de campo
 // version simplificada?
+
 function colorValorValido(elemento){
     document.querySelector(elemento).classList.add("valida");
     document.querySelector(elemento).classList.remove("invalido");
 }
+
 function colorValorInvalido(elemento){
     document.querySelector(elemento).classList.add("invalido");
     document.querySelector(elemento).classList.remove("valida");  
 }
 
 
+//Validar con blur
 
 document.querySelector('#email').addEventListener('blur', validarEmail);
 document.querySelector('#nombre').addEventListener('blur', validarNombre);
 document.querySelector('#apellido').addEventListener('blur', validarApellido);
 document.querySelector('#mensaje').addEventListener('blur', validarMensaje);
 
-//botón suscribite- La idea es mejorar el código para que no se repita tanto, y hacerlo más eficientes con todo lo que hemos visto. Pero voy de a poco
+//botón suscribite- La idea es mejorar el código para que no se repita tanto, y hacerlo más eficiente con todo lo que hemos visto. Pero no se me ocurre cómo
 
 const btnSuscribite = document.getElementById('btn-suscribite');
 
