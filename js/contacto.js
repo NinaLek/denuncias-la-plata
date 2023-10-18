@@ -209,9 +209,9 @@ btnSuscribite.addEventListener('click', (e)=>{
 class Mensaje {
     constructor(nombre, apellido, email, mensaje, motivo) {
         this.nombre = nombre,
-            this.apellido = apellido,
-            this.email = email,
-            this.mensaje = mensaje;
+        this.apellido = apellido,
+        this.email = email,
+        this.mensaje = mensaje,
         this.motivo = motivo;
     }
 }
