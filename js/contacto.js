@@ -30,12 +30,12 @@ envio.addEventListener('submit', (e)=>{
         let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
         let motIngresado = nuevoObjeto[nuevoObjeto.length-1].motivo;
         
-        swal('Mensaje enviado exitosamente',`Nombre: ${nomIngresado} \n Apellido: ${apeIngresado} \n Email: ${emailIngresado} \n Motivo: ${motIngresado} \n Mensaje: ${msjIngresado}` )
+        swal('Mensaje enviado exitosamente',`Nombre: ${nomIngresado} \n Apellido: ${apeIngresado} \n Email: ${emailIngresado} \n Motivo: ${motIngresado} \n Mensaje: ${msjIngresado}`, 'success' );
         return true;
 
     }else{
 
-        swal('Algo  no salió como esperabamos', 'El mensaje no ha sido enviado. Verifique que todos los campos tengan datos válidos');
+        swal('Algo  no salió como esperabamos', 'El mensaje no ha sido enviado. Verifique que todos los campos tengan datos válidos', 'error');
         return false;
 
     }
@@ -204,15 +204,11 @@ btnSuscribite.addEventListener('click', (e)=>{
     }
     else{
 
-        alert('Ha ocurrido un error. Por favor revise sus datos');
+        swal('Ha ocurrido un error. Por favor revise sus datos');
     }
 
 });
-  ///probando template literals
-       // let msjpantalla= `Nombre: ${nomIngresado} <br>Apellido: ${apeIngresado} <br>Email ${emailIngresado} <br>Motivo: ${motIngresado} <br>Mensaje: ${msjIngresado}`
-       // 
-       // document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado + " <br> Motivo: " + motIngresado;
-      
+  
 // chequeando que el local storage ande
 //console.log(localStorage.getItem('usuarios'));// muestra el ingresado antes de la recarga
 
