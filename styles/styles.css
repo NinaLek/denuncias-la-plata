@@ -27,6 +27,7 @@ body {
 /* ----------------- Barra de navegación -------------------------- */
 .menu {
     margin-top: 10px;
+    width: 100%; 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -38,8 +39,10 @@ body {
     list-style: none;
     display: inline-block;
 }
-
-li a {
+.menu-boot{
+    margin-left: -32px;
+}
+.menu-item-principal~li a {
     text-decoration: none;
     color: white;
     font-size: 1em;
@@ -47,6 +50,7 @@ li a {
 
 .menu-item-principal a {
     color: black;
+    text-decoration: none;
 }
 
 .menu-item-principal {
@@ -129,8 +133,7 @@ footer {
     position: relative;
     bottom: 0;
     height: 150px;
-    width: 100%;
-    
+    width: 100%;    
     background-color: #0A2742;
     color: #f6f6f6;
    
@@ -239,13 +242,16 @@ footer li {
     color: green;
    
 }
-
+.limpio{
+    border-color: grey;
+    color: black;
+}
 /*--------------------------------------------------estilos de blog ----------------------------------------------------*/
-.contenido {
+/* .contenido {
     margin-top: 5em;
     width: auto;
     min-height: 800px;
-  }
+  } */
   
   #blog {
     display: flex;
@@ -261,10 +267,14 @@ footer li {
     align-items: center;
     flex-direction: column;
   }
+  h1{
+    text-align: center;
+  }
   .blog-heading h3 {
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
     color: #000;
     font-weight: 600;
+    text-align: center;
   }
   
   .blog-search {
@@ -272,44 +282,42 @@ footer li {
     height: 40vh;
     background: lightgray;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
   .blog-form {
+    margin-top: 25px;
     background: #ffffff;
-    width: 600px;
-    height: 55px;
+    /* width: 600px; */
+    /* height: 55px; */
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }
   
-  .blog-form {
-    border: none;
-    outline: none;
-    background: lightgray;
-  }
+
   .blog-form-input {
     border: none;
     outline: none;
-    padding: 10px 100px;
+    /* padding: 10px 100px; */
   }
   .blog-form-button {
-    background: rgb(75, 75, 75);
-    padding: 10px 50px;
-    border: none;
-    outline: none;
-    color: #ffffff;
+    background: rgba(126, 133, 126, 0.479);
+    height: 25px;
+    width: 25px;
     letter-spacing: 1px;
     cursor: pointer;
+    color: white;
+    border: none;
+    outline: none;
   }
-  form .fa-search {
-    align-self: center;
-    padding: 10px 20px;
-    color: #ffffff;
+ 
+  .fa-solid{
+    padding: 2px;
   }
-  
   .blog-container {
     display: flex;
     justify-content: center;
@@ -357,7 +365,7 @@ footer li {
     text-overflow: ellipsis;
     margin: 20px 0px;
   }
-  .blog-text a {
+  .blog-text a{
     color: #0a2742;
   }
   .blog-text a:hover {
@@ -471,7 +479,7 @@ footer li {
 }
 
 
-::placeholder {
+::placeholder{
     padding-left: 2em;
 }
 
@@ -506,7 +514,7 @@ footer li {
 
 }
 
-#motivo-contacto {
+#motivoContacto {
     width: 100%;
     margin: o.2em;
 }
@@ -609,6 +617,10 @@ nav label {
     font-weight: bold;
     text-align: center;
     user-select: none;
+}
+.menu-hamburguesa li a{
+    text-decoration: none;
+
 }
 
 #logo {

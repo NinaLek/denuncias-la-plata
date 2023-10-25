@@ -1,20 +1,23 @@
-let envio = document.querySelector('#registro');
-let limpiar = document.getElementById('btn-limpiar');
+const envio = document.querySelector('#registro');
+const limpiar = document.getElementById('btn-limpiar');
+const emailv = document.querySelector('#email');
+const motiv = document.querySelector('#motivoContacto');
+const nombrev = document.querySelector('#nombre');
+const apellidov = document.querySelector('#apellido');
+const mensajev = document.querySelector('#mensaje');
+const btnSuscribite = document.getElementById('btn-suscribite');
 
 
 envio.addEventListener('submit', (e)=>{
-
     e.preventDefault();
-
     if (validarNombre() && validarApellido() && validarEmail() && validarMensaje() && validarMotivo(e)){
-
         let mensajeActual = new Mensaje(nombre.value,apellido.value,email.value,mensaje.value, motivoContacto.value);
         mensajesEnviados.push(mensajeActual);
         let mensajeJSON = JSON.stringify(mensajesEnviados);
         mensajesEnviados.push(mensajeActual);
         localStorage.setItem('mensajes',mensajeJSON);
 
-        alert('Su mensaje ha sido enviado exitosamente');
+      //  alert('Su mensaje ha sido enviado exitosamente');
             
         /// creo que lo de sacar de ña base de datos es para el caso en que tuviesemos un json ya y tuviesemos que sacar los datos de ahi
         let nuevoObjeto = JSON.parse(localStorage.getItem("mensajes"));//acá para crear uno desde el local storage nomás
@@ -26,12 +29,13 @@ envio.addEventListener('submit', (e)=>{
         let emailIngresado = nuevoObjeto[nuevoObjeto.length-1].email;
         let msjIngresado = nuevoObjeto[nuevoObjeto.length-1].mensaje;
         let motIngresado = nuevoObjeto[nuevoObjeto.length-1].motivo;
-        document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado + " <br> Motivo: " + motIngresado;
+        
+        swal('Mensaje enviado exitosamente',`Nombre: ${nomIngresado} \n Apellido: ${apeIngresado} \n Email: ${emailIngresado} \n Motivo: ${motIngresado} \n Mensaje: ${msjIngresado}` )
         return true;
 
     }else{
 
-        alert('El mensaje no ha sido enviado. Verifique los campos');
+        swal('Algo  no salió como esperabamos', 'El mensaje no ha sido enviado. Verifique que todos los campos tengan datos válidos');
         return false;
 
     }
@@ -142,11 +146,14 @@ function validarMensaje(){
 // version simplificada?
 
 function colorValorValido(elemento){
+    document.querySelector(elemento).classList.remove("limpio");
+
     document.querySelector(elemento).classList.add("valida");
     document.querySelector(elemento).classList.remove("invalido");
 }
 
 function colorValorInvalido(elemento){
+    document.querySelector(elemento).classList.remove("limpio");
     document.querySelector(elemento).classList.add("invalido");
     document.querySelector(elemento).classList.remove("valida");  
 }
@@ -154,15 +161,14 @@ function colorValorInvalido(elemento){
 
 //Validar con blur
 
-document.querySelector('#email').addEventListener('blur', validarEmail);
-document.querySelector('#motivoContacto').addEventListener('blur', validarMotivo);
-document.querySelector('#nombre').addEventListener('blur', validarNombre);
-document.querySelector('#apellido').addEventListener('blur', validarApellido);
-document.querySelector('#mensaje').addEventListener('blur', validarMensaje);
+emailv.addEventListener('blur', validarEmail);
+motiv.addEventListener('blur', validarMotivo);
+nombrev.addEventListener('blur', validarNombre);
+apellidov.addEventListener('blur', validarApellido);
+mensajev.addEventListener('blur', validarMensaje);
 
-//botón suscribite- La idea es mejorar el código para que no se repita tanto, y hacerlo más eficiente con todo lo que hemos visto. Pero no se me ocurre cómo
 
-const btnSuscribite = document.getElementById('btn-suscribite');
+
 
 function Usuario(nombre, apellido, email){
     this.nombre= nombre,
@@ -187,7 +193,11 @@ btnSuscribite.addEventListener('click', (e)=>{
                 usuarios.push(usuario);//se lo mando al arreglo de usuarios
                 let usuariosJSON= JSON.stringify(usuarios);
                 localStorage.setItem('usuarios',usuariosJSON);//se supone que acá se mandó al local storage
-                alert('Felicidades, ' + nombsusc + ' ' + apesusc + ' ya estás registrada en nuestra base de datos');
+               // alert('Felicidades, ' + nombsusc + ' ' + apesusc + ' ya estás registrada en nuestra base de datos');
+               swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`)
+                let msjPantalla= `Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
+                document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
+               
                 return true; 
             }
         }
@@ -198,7 +208,11 @@ btnSuscribite.addEventListener('click', (e)=>{
     }
 
 });
-
+  ///probando template literals
+       // let msjpantalla= `Nombre: ${nomIngresado} <br>Apellido: ${apeIngresado} <br>Email ${emailIngresado} <br>Motivo: ${motIngresado} <br>Mensaje: ${msjIngresado}`
+       // 
+       // document.querySelector('#ventana-ingresados').innerHTML= "Nombre: " + nomIngresado + " <br> Apellido: " + apeIngresado + " <br> Email: " + emailIngresado + " <br> Mensaje: " + msjIngresado + " <br> Motivo: " + motIngresado;
+      
 // chequeando que el local storage ande
 //console.log(localStorage.getItem('usuarios'));// muestra el ingresado antes de la recarga
 
@@ -218,8 +232,15 @@ class Mensaje {
 
 let mensajesEnviados = [];
 
-limpiar.addEventListener('clic', ()=>{   ///¿Cómo se puede hacer para que al limpiar se salga lo que se muestra?
+limpiar.addEventListener('click', ()=>{   ///¿Cómo se puede hacer para que al limpiar se salga lo que se muestra?
 
     document.querySelector('#ventana-ingresados').innerHTML='';
+   
+    emailv.classList.add('limpio');
+    nombrev.classList.add('limpio');
+    apellidov.classList.add('limpio');
+    mensajev.classList.add('limpio');
+    motiv.classList.add('limpio');
+
 
 })
