@@ -194,7 +194,7 @@ btnSuscribite.addEventListener('click', (e)=>{
                 let usuariosJSON= JSON.stringify(usuarios);
                 localStorage.setItem('usuarios',usuariosJSON);//se supone que acá se mandó al local storage
                // alert('Felicidades, ' + nombsusc + ' ' + apesusc + ' ya estás registrada en nuestra base de datos');
-               swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`)
+               swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`,'success');
                 let msjPantalla= `Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
                 document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
                
@@ -204,7 +204,7 @@ btnSuscribite.addEventListener('click', (e)=>{
     }
     else{
 
-        swal('Ha ocurrido un error. Por favor revise sus datos');
+        swal('Ha ocurrido un error. Por favor revise sus datos','error');
     }
 
 });
