@@ -232,11 +232,14 @@ limpiar.addEventListener('click', ()=>{   ///¿Cómo se puede hacer para que al 
 
     document.querySelector('#ventana-ingresados').innerHTML='';
    
-    emailv.classList.add('limpio');
-    nombrev.classList.add('limpio');
-    apellidov.classList.add('limpio');
-    mensajev.classList.add('limpio');
-    motiv.classList.add('limpio');
-
+    const  inputs = [emailv, nombrev, apellidov, mensajev, motiv];
+    inputs.forEach( function(element){
+        element.classList.add('limpio');
+    });
+    // emailv.classList.add('limpio');
+    // nombrev.classList.add('limpio');
+    // apellidov.classList.add('limpio');
+    // mensajev.classList.add('limpio');
+    // motiv.classList.add('limpio');
 
 })
