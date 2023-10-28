@@ -627,6 +627,15 @@ nav label {
     text-decoration: none;
 
 }
+.menuOculto{
+    display: none;
+}
+#menuOculto li{
+    padding-left: 2em;
+}
+.despl-boot{
+    margin-left: -35px;
+}
 
 #logo {
     text-decoration: none;
@@ -641,7 +650,8 @@ nav label {
 
 .menu-hamburguesa li {
     display: block;
-    background: grey;
+    background: rgb(12, 47, 80, 87%);
+  
     margin: 0;
     padding: 10px;
     list-style: none;
@@ -649,10 +659,18 @@ nav label {
     font-weight: bold;
 }
 
-.menu-hamburguesa li a {
-    color: black;
-    display: block;
+#menuOculto li{
+    background-color: rgba(20, 93, 160, 100%); 
+ 
 
+}
+.menu-hamburguesa li a {
+    color: white;
+    display: block;
+}
+
+#boton-impostor{
+    color: white;;
 }
 .menu-hamburguesa{
     padding-left: 0;

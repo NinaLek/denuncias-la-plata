@@ -42,28 +42,42 @@
         <nav class="navegacion-responsive">
           <input type="checkbox" id="menu-hamburguesa">
           <label for="menu-hamburguesa">☰ </label>
-          <a href="../index.html" id="logo">La Plata <span class="dato-importante">Denuncia</span></a>
+          <a href="../index.html" id="logo">La Plata
+              <span class="dato-importante">Denuncia</span></a>
           <ul class="menu-hamburguesa">
-    
-            <li><a href="../index.html">Inicio</a></li>
-            <li>
-              <div class="menu-desplegable-hamburguesa">
-                <button class="btn-menu-desplegable-hamburguesa">Categorías</button>
-                <div class="menu-desplegable-contenido-hamburguesa">
-                  <a href="./denuncia-contacto.html#violencia-genero">Violencia de género</a>
-                  <a href="./denuncia-contacto.html#maltrato-animal">Maltrato animal</a>
-                  <a href="./denuncia-contacto.html#acoso">Acoso</a>
-                  <a href="./denuncia-contacto.html#problemas-ciudad">Problemas en la ciudad</a>
-                  <a href="./denuncia-contacto.html#maltrato-infantil">Maltrato infantil</a></h2>
-                  <a href="./denuncia-contacto.html#ruidos-molestos">Ruidos molestos</a>
-                </div>
-              </div>
-            </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./ongs.html">ONGs</a></li>
-            <li><a href="./contacto.html">Contacto</a></li>
+
+              <li><a href="../index.html">Inicio</a></li>
+              <li id="boton-impostor">
+                  Categorías
+                  <!-- <button class="btn-menu-desplegable-hamburguesa">Categorías</button> -->
+              </li>
+              
+                  <ol id="menuOculto" class="menuOculto">
+                      <li>
+                          <a href="./denuncia-contacto.html#violencia-genero">Violencia de género</a>
+                      </li>
+                      <li>
+                           <a href="./denuncia-contacto.html#maltrato-animal">Maltrato animal</a>
+                      </li>
+                      <li>
+                          <a href="./denuncia-contacto.html#acoso">Acoso</a>
+                      </li>
+                      <li>
+                          <a href="./denuncia-contacto.html#problemas-ciudad">Problemas en la ciudad</a>
+                      </li>
+                      <li>
+                          <a href="./denuncia-contacto.html#maltrato-infantil">Maltrato infantil</a>
+                      </li>
+                      <li>
+                          <a href="./denuncia-contacto.html#ruidos-molestos">Ruidos molestos</a>
+                      </li>
+                  </ol> 
+            
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./ongs.html">ONGs</a></li>
+              <li><a href="./contacto.html">Contacto</a></li>
           </ul>
-        </nav>
+      </nav>
     </header>
 
     <main>
@@ -143,5 +157,6 @@
         </div>
     </footer>
     <script src="../js/contacto.js"></script>
+    <script src="../js/desplegable.js"></script>
 </body>
 </html>

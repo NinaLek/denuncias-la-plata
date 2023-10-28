@@ -148,7 +148,7 @@ btnSuscribite.addEventListener('click', (e)=>{
                 if(usuariosGuardados[i].email == emailsusc){  //si el mail guardado en esa posición es igual al ingresado
                     nuevoUsuario = false; //ya no es un usuario nuevo, se le comunica los datos ingresados en pantalla
                     swal('Momento!', 'Este email ha sido registrado anteriormente, chequeá los datos ingresados', 'error');
-                    let msjPantalla = `Nombre: ${usuariosGuardados[i].nombre} <br> Apellido: ${usuariosGuardados[i].apellido} <br> Email: ${usuariosGuardados[i].email}`
+                    let msjPantalla = `Datos registrados: <br>Nombre: ${usuariosGuardados[i].nombre} <br> Apellido: ${usuariosGuardados[i].apellido} <br> Email: ${usuariosGuardados[i].email}`
                     document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
                 }
                 if(!nuevoUsuario){//corta cuando encuentre una coincidencia
@@ -168,7 +168,7 @@ btnSuscribite.addEventListener('click', (e)=>{
                     localStorage.setItem('usuarios',usuariosJSON);//se manda al local storage
                 //mostrando los datos desde la pagina y no el local storage
                 swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`,'success');
-                let msjPantalla= `Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
+                let msjPantalla= `Datos registrados: <br>Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
                 document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
                return true; 
                 }
