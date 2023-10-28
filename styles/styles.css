@@ -95,7 +95,7 @@ body {
 
 .menu-desplegable-contenido {
     display: none;
-    margin: 0 -10px;
+    margin: 10px -10px;
     padding: 0 1em;
     background-color: rgba(23, 73, 119, 80%);
 
@@ -104,7 +104,6 @@ body {
 .menu-desplegable {
     font-size: 1.5em;
     padding: 10px;
-
     text-align: center;
 
 }
@@ -173,7 +172,10 @@ footer li {
     line-height: 1.5em;
 
 }
-
+.telefonos-utiles{
+    font-weight: normal;
+    line-height: 1.5em;
+}
 
 /*----------------------------estilos de index----------------------------------------------------*/
 .portada {
@@ -565,7 +567,10 @@ footer li {
     margin: 3px;
 }
 
-
+#ventana-ingresados{
+    text-align: center;
+    background-color: #86b7e5;
+}
 /* ----------------------------------------Responsive --------------------------------------------*/
 /* -----------------menu hamburguesa-------------*/
 
@@ -649,7 +654,9 @@ nav label {
     display: block;
 
 }
-
+.menu-hamburguesa{
+    padding-left: 0;
+}
 #footer-raro{ 
     height: max-content;
     align-items: center;
@@ -715,7 +722,7 @@ nav label {
 }
 
 /* ---- pantalla tablet (768- 1023)---- */
-@media screen and (min-width:481px) and (max-width:900px) {
+@media screen and (min-width:480px) and (max-width:900px) {
     body {
         width: 100%;
 
@@ -771,7 +778,7 @@ nav label {
         justify-content: space-evenly;
         align-items: center;
     }
-
+  
     /* ----- estilos contacto -----*/
     .caja-contenedora {
         flex-direction: column;
@@ -826,11 +833,11 @@ nav label {
         margin-top: 1em;
         text-align: center;
         padding-left: 1em;
-        line-height: 1em;
+        font-size: 1em;
     }
 
     .presentacion h1 {
-
+        font-size: 1.5em;
         text-align: center;
         width: auto;
         flex: 0;
@@ -863,7 +870,7 @@ nav label {
     }
 
     .datos-formulario input {
-
+        width: 100%;
         margin: 0;
     }
 
@@ -893,7 +900,11 @@ nav label {
     .telefonos-utiles {
         display: none;
     }
-
+    .info-footer{
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
     /* ----- estilos blog -----*/
     .datos {
         margin-top: 0;
