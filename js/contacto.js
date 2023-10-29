@@ -141,7 +141,7 @@ btnSuscribite.addEventListener('click', (e)=>{
     if(emailsusc != '' && emailsusc != null && emailValido.test(emailsusc)){ //capturamos el email ingresado por el prompt
         //revisa la base de usuarios
 
-        if(usuarios.length > 0){ //si tiene algo el array de usuarios guardados lo revisamos
+        if(usuarios.length > 0){         //si tiene algo el array de usuarios guardados lo revisamos
             const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios'));
             console.log('cantidad de usuarios guardados' + usuariosGuardados.length);
             for(var i=0; i<usuariosGuardados.length;i++){
@@ -156,7 +156,7 @@ btnSuscribite.addEventListener('click', (e)=>{
                 }
             }
         }
-        if(usuarios == null || nuevoUsuario){  //si no habia usuarios o no estaba registrado el mail agrega otro
+        if(nuevoUsuario){  //si el usuario no estaba registrado el mail agrega otro
             //si el array estaba vacío o si no lo encuentra sigue para ingresar un usuario nuevo
             let nombsusc= prompt('Ingresá tu nombre');
             if (nombsusc != '' && nombsusc != null && caracteresValidos.test(nombsusc)){ //valida el nombre ingresado
@@ -166,18 +166,23 @@ btnSuscribite.addEventListener('click', (e)=>{
                     usuarios.push(usuario);//se lo mando al arreglo de usuarios
                     let usuariosJSON= JSON.stringify(usuarios);// se convierte a formato JSON
                     localStorage.setItem('usuarios',usuariosJSON);//se manda al local storage
-                //mostrando los datos desde la pagina y no el local storage
-                swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`,'success');
-                let msjPantalla= `Datos registrados: <br>Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
-                document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
-               return true; 
+                    //mostrando los datos desde la pagina y no el local storage
+                    swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`,'success');
+                    let msjPantalla= `Datos registrados: <br>Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
+                    document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
+                    return true; 
+                }else{
+                    swal('Ha ocurrido un error','El apellido ingresado únicamente puede contener letras','error');
                 }
+            }else{
+            swal('Ha ocurrido un error', 'El nombre ingresado únicamente puede contener letras','error');
             }
         }
     }else{ //si se ingresa un email no válido
-        swal('Ha ocurrido un error', 'Por favor revise sus datos','error');
-        return false;
+            swal('Ha ocurrido un error', 'Por favor revise sus datos','error');
+            return false;
     }
+    
 });
   
 //localstorage para los mensajes
