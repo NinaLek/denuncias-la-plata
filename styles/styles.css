@@ -183,7 +183,7 @@ footer li {
 .portada {
     display: flex;
     width: 100%;
-    height: 75vh;
+    height: auto;
     background-image: url(../imagenes/fondo-inicio.png);
     background-repeat: no-repeat;
 }

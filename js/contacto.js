@@ -169,7 +169,7 @@ btnSuscribite.addEventListener('click', (e)=>{
                     let usuariosJSON= JSON.stringify(usuarios);// se convierte a formato JSON
                     localStorage.setItem('usuarios',usuariosJSON);//se manda al local storage
                     //mostrando los datos desde la pagina y no el local storage
-                    swal('¡Felicitaciones! '+ nombsusc + " "+ apesusc,`¡Ya estás registrada/o en nuestra base de datos!`,'success');
+                    swal('¡Felicitaciones '+ nombsusc + " "+ apesusc + '!',`¡Ya estás registrada/o en nuestra base de datos!`,'success');
                     let msjPantalla= `Datos registrados: <br>Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
                     document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
                     return true; 
