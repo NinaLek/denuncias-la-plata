@@ -15,7 +15,7 @@ const emailValido = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;  //validac
 envio.addEventListener('submit', (e)=>{ //al hacer click en el botón enviar
     e.preventDefault();                 // detenemos el envío hasta validar los datos
     if (validarNombre() && validarApellido() && validarEmail() && validarMensaje() && validarMotivo(e)){  //si todo es correcto se envia el formulario y se archiva en el local storage
-        let mensajeActual = new Mensaje(nombre.value,apellido.value,email.value,mensaje.value, motivoContacto.value); //creamos un objeto mensaje el cual enviaremos al array antes de enviarlo al Local Storage
+        let mensajeActual = new Mensaje(mayuscula(nombre.value),mayuscula(apellido.value),email.value,mensaje.value, mayuscula(motivoContacto.value)); //creamos un objeto mensaje el cual enviaremos al array antes de enviarlo al Local Storage
         mensajesEnviados.push(mensajeActual); //pusheamos el msj nuevo al array mensajeEnviados
         let mensajeJSON = JSON.stringify(mensajesEnviados); // convertimos el arreglo a formato JSON
         localStorage.setItem('mensajes',mensajeJSON); //enviamos el array en formato JSON al Local storage
@@ -147,7 +147,7 @@ btnSuscribite.addEventListener('click', (e)=>{
             for(var i=0; i<usuariosGuardados.length;i++){
                 if(usuariosGuardados[i].email == emailsusc){  //si el mail guardado en esa posición es igual al ingresado
                     nuevoUsuario = false; //ya no es un usuario nuevo, se le comunica los datos ingresados en pantalla
-                    swal('Momento!', 'Este email ha sido registrado anteriormente, chequeá los datos ingresados', 'error');
+                    swal('¡Momento!', 'Este email ha sido registrado anteriormente, chequeá los datos ingresados', 'error');
                     let msjPantalla = `Datos registrados: <br>Nombre: ${usuariosGuardados[i].nombre} <br> Apellido: ${usuariosGuardados[i].apellido} <br> Email: ${usuariosGuardados[i].email}`
                     document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
                 }
@@ -162,12 +162,14 @@ btnSuscribite.addEventListener('click', (e)=>{
             if (nombsusc != '' && nombsusc != null && caracteresValidos.test(nombsusc)){ //valida el nombre ingresado
                 let apesusc= prompt('Ingresá tu apellido');
                 if (apesusc != '' && apesusc != null && caracteresValidos.test(apesusc)){  //valida el apellido ingresado
+                    nombsusc = mayuscula(nombsusc); //Pone en mayúscula la primera letra para que así se registre
+                    apesusc = mayuscula(apesusc);
                     let usuario= new Usuario(nombsusc,apesusc,emailsusc);//instancio un nuevo objeto usuario
                     usuarios.push(usuario);//se lo mando al arreglo de usuarios
                     let usuariosJSON= JSON.stringify(usuarios);// se convierte a formato JSON
                     localStorage.setItem('usuarios',usuariosJSON);//se manda al local storage
                     //mostrando los datos desde la pagina y no el local storage
-                    swal('¡Felicitaciones!',`${nombsusc} ${apesusc} ya estás registrada/o en nuestra base de datos!`,'success');
+                    swal('¡Felicitaciones! '+ nombsusc + " "+ apesusc,`¡Ya estás registrada/o en nuestra base de datos!`,'success');
                     let msjPantalla= `Datos registrados: <br>Nombre: ${nombsusc} <br> Apellido: ${apesusc} <br> Email: ${emailsusc}`;
                     document.querySelector('#ventana-ingresados').innerHTML= msjPantalla;
                     return true; 
@@ -197,7 +199,9 @@ class Mensaje {
         this.motivo = motivo;
     }
 }
-
+function mayuscula(str){//convierte la primera letra en mayúscula
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 
 limpiar.addEventListener('click', ()=>{   //botón para limpiar tanto los campos del formulario como la pantalla de los datos ingresados
